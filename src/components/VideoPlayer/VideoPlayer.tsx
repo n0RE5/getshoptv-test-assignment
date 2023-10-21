@@ -2,11 +2,11 @@ import React, { useEffect, useRef } from 'react'
 import { useVideoPlayerStore } from '../../store/VideoPlayerStore';
 import styles from './VideoPlayer.module.scss';
 
-interface VideoplayerProps {
+interface VideoPlayerProps {
     src: string
 }
 
-const Videoplayer: React.FC<VideoplayerProps> = ({ src }) => {
+const VideoPlayer: React.FC<VideoPlayerProps> = ({ src }) => {
     const ref = useRef<HTMLVideoElement>(null)
     const isActive = useVideoPlayerStore(state => state.isActive)
 
@@ -37,4 +37,4 @@ const Videoplayer: React.FC<VideoplayerProps> = ({ src }) => {
     );
 }
 
-export default Videoplayer;
+export default VideoPlayer;
