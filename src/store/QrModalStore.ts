@@ -7,7 +7,7 @@ interface QrModalState {
 
 export const useQrModalStore = create<QrModalState>((set) => ({
     isActive: false,
-    switchState: (active: boolean) => set(state => ({
+    switchState: (active: boolean) => set({
         isActive: active 
-    }))
+    })
 }))

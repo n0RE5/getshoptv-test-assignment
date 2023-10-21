@@ -7,7 +7,7 @@ interface VideoPlayerState {
 
 export const useVideoPlayerStore = create<VideoPlayerState>((set) => ({
     isActive: true,
-    switchState: (active: boolean) => set(state => ({
+    switchState: (active: boolean) => set({
         isActive: active 
-    }))
+    })
 }))
