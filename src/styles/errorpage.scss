@@ -1,0 +1,28 @@
+.error404 {
+    padding: 40px;
+    &__text {
+        font-size: 78px;
+        font-weight: 700;
+        margin-bottom: 16px;
+        text-align: center;
+    }
+    &__description {
+        text-align: center;
+        font-size: 28px;
+        font-weight: 400;
+        margin-bottom: 12px;
+    }
+    &__link {
+        display: block;
+        text-align: center;
+        color: #387bed;
+        transition: color .15s ease-in;
+        text-decoration: underline;
+        font-size: 32px;
+        font-weight: 500;
+        &:hover {
+            cursor: pointer;
+            color: #1451ba;
+        }
+    }
+}
