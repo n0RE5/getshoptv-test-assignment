@@ -1,6 +1,7 @@
 import { Navigate } from "react-router-dom";
 import { IRoute } from "./types/globals";
 import { DEFAULT_ROUTE, ERROR_ROUTE } from "./utils/consts";
+import ErrorPage from "./pages/ErrorPage";
 
 export const routes: IRoute[] = [
     {
@@ -9,7 +10,7 @@ export const routes: IRoute[] = [
     },
     {
         path: ERROR_ROUTE,
-        element: <div />
+        element: <ErrorPage />
     },
     {
         path: '*',
