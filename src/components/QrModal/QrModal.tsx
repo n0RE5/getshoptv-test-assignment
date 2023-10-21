@@ -9,7 +9,8 @@ const QrModal = () => {
     const switchQrModalState = useQrModalStore(state => state.switchState)
     const switchPhoneModalState = usePhoneModalStore(state => state.switchState)
 
-    const handleClick = useCallback(() => {
+    const handleClick = useCallback((event: React.MouseEvent) => {
+        event.preventDefault()
         switchQrModalState(false)
         switchPhoneModalState(true)
     }, [])
@@ -26,7 +27,7 @@ const QrModal = () => {
 
     return (
         <div className={styles.qrmodal}>
-            <div className={styles.qrmodal_w}>
+            <form className={styles.qrmodal_w}>
                 <h1 className={styles.qrmodal_text}>ИСПОЛНИТЕ МЕЧТУ ВАШЕГО МАЛЫША!</h1>
                 <h2 className={styles.qrmodal_text}>ПОДАРИТЕ ЕМУ СОБАКУ!</h2>
                 <div className={styles.qrmodal_qr}>
@@ -37,8 +38,14 @@ const QrModal = () => {
                     <br />
                     или нажмите ОК
                 </div>
-                <button onClick={handleClick} className={styles.qrmodal_button}>OK</button>
-            </div>
+                <button 
+                    autoFocus 
+                    onClick={handleClick} 
+                    className={styles.qrmodal_button}
+                >
+                    OK
+                </button>
+            </form>
         </div>
     );
 }

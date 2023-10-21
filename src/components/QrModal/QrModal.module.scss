@@ -43,13 +43,15 @@
 .qrmodal_button {
     appearance: none;
     border: none;
-    transition: background-color .15s ease-in;
+    transition: all .15s ease-in;
     width: 156px;
     height: 52px;
-    color: $cyan;
-    background-color: black;
-    &:hover {
+    color: $gray;
+    border: 1px solid $gray;
+    background-color: transparent;
+    &:hover, &:focus {
         cursor: pointer;
-        background-color: rgb(19, 19, 19);
+        background-color: black;
+        color: white;
     }
 }
