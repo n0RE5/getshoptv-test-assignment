@@ -1,0 +1,60 @@
+@import '../../styles/variables';
+
+.phonemodal {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.phonemodal_w {
+    width: 100%;
+    height: 100%;
+}
+
+.phonemodal_content {
+    background-color: $cyan;
+    padding: 72px 48px;
+    width: 380px;
+    height: 100%;
+}
+
+.phonemodal_text {
+    font-size: 26px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.phonemodal_microtext {
+    margin: 13px 0;
+    font-weight: 400;
+    font-size: 14px;
+    text-align: center;
+}
+
+.phonemodal_input {
+    background-color: transparent;
+    border: none;
+    font-weight: 700;
+    font-size: 32px;
+}
+
+.phonemodal_button {
+    width: 100%;
+    padding: 12px 0;
+    transition: all .15s ease-in;
+    color: $gray;
+    outline: none;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+    background-color: transparent;
+    border: 1px solid $gray;
+    &:hover, &:focus {
+        background-color: black;
+        border: 1px solid black;
+        color: white;
+        cursor: pointer;
+    }
+}
