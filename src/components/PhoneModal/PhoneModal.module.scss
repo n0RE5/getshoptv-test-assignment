@@ -35,10 +35,6 @@
     border: 2px solid black;
     background-color: white;
     outline: none;
-    &:hover {
-        cursor: pointer;
-        background-color: rgb(212, 212, 212);
-    }
     &::before {
         content: '';
         position: absolute;
@@ -56,6 +52,16 @@
         height: 3px;
         background-color: black;
         transform: rotate(45deg);
+    }
+    &:hover, &:focus {
+        cursor: pointer;
+        background-color: black;
+        &::after {
+            background-color: white;
+        }
+        &::before {
+            background-color: white;
+        }
     }
 }
 
