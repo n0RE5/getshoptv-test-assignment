@@ -5,19 +5,18 @@ import qrcode from '../../assets/qr.svg'
 import { useQrModalStore } from '../../store/QrModalStore';
 
 const QrModal = () => {
-    const isActive = useQrModalStore(state => state.isActive)
-    const switchQrModalState = useQrModalStore(state => state.switchState)
-    const switchPhoneModalState = usePhoneModalStore(state => state.switchState)
+    const { isActive, closeQrModal, openQrModal } = useQrModalStore(state => state)
+    const { openPhoneModal } = usePhoneModalStore(state => state)
 
     const handleClick = useCallback((event: React.MouseEvent) => {
         event.preventDefault()
-        switchQrModalState(false)
-        switchPhoneModalState(true)
+        closeQrModal()
+        openPhoneModal()
     }, [])
 
     useEffect(() => {
         setTimeout(() => {
-            switchQrModalState(true)
+            openQrModal()
         }, 5000)
     }, [])
 
