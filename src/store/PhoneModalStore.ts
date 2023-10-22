@@ -5,7 +5,8 @@ interface PhoneModalState {
     phoneNumber: string,
     setPhoneNumber: (arg0: string) => void,
     clearPhoneNumber: () => void,
-    switchState: (arg0: boolean) => void
+    openPhoneModal: () => void,
+    closePhoneModal: () => void
 }
 
 export const usePhoneModalStore = create<PhoneModalState>((set) => ({
@@ -22,7 +23,10 @@ export const usePhoneModalStore = create<PhoneModalState>((set) => ({
     clearPhoneNumber: () => set({
         phoneNumber: '7'
     }),
-    switchState: (active: boolean) => set({
-        isActive: active 
+    openPhoneModal: () => set({
+        isActive: true 
+    }),
+    closePhoneModal: () => set({
+        isActive: false 
     })
 }))

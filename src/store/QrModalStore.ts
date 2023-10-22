@@ -2,12 +2,16 @@ import {create} from 'zustand';
 
 interface QrModalState {
     isActive: boolean,
-    switchState: (arg0: boolean) => void
+    openQrModal: () => void
+    closeQrModal: () => void
 }
 
 export const useQrModalStore = create<QrModalState>((set) => ({
     isActive: false,
-    switchState: (active: boolean) => set({
-        isActive: active 
+    openQrModal: () => set({
+        isActive: true 
+    }),
+    closeQrModal: () => set({
+        isActive: false 
     })
 }))
