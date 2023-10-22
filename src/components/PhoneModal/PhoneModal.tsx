@@ -5,11 +5,13 @@ import qrcode from '../../assets/qr.svg';
 import { useQrModalStore } from '../../store/QrModalStore';
 import PhoneKeyboard from '../PhoneKeyboard/PhoneKeyboard';
 import { useVideoPlayerStore } from '../../store/VideoPlayerStore';
+import { useArrowNavigation } from '../../hooks/useArrowNavigation';
 
 const PhoneModal = () => {
     const { isActive, closePhoneModal } = usePhoneModalStore(state => state)
     const { openQrModal } = useQrModalStore(state => state)
     const { play } = useVideoPlayerStore(state => state)
+    const navigation = useArrowNavigation('#arrowNavigation')
 
     const handleClose = useCallback(() => {
         closePhoneModal()
@@ -28,6 +30,7 @@ const PhoneModal = () => {
                 <div className={styles.phonemodal_sidebar}>
                     <button 
                         onClick={handleClose}
+                        id="arrowNavigation"
                         className={styles.phonemodal_close}
                     />
                     <div className={styles.phonemodal_qr}>
