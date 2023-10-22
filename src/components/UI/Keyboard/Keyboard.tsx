@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './Keyboard.module.scss';
 import KeyboardButton from '../KeyboardButton/KeyboardButton';
 
@@ -55,6 +55,32 @@ const Keyboard: React.FC<KeyboardProps> = ({ setValue, clearValue }) => {
             onClick: () => setValue('0')
         },
     ])
+
+    const [keyboardCollection] = useState({
+        "1": () => setValue('1'),
+        "2": () => setValue('2'),
+        "3": () => setValue('3'),
+        "4": () => setValue('4'),
+        "5": () => setValue('5'),
+        "6": () => setValue('6'),
+        "7": () => setValue('7'),
+        "8": () => setValue('8'),
+        "9": () => setValue('9'),
+        "0": () => setValue('0'),
+        "Backspace": () => clearValue()
+    })
+
+    useEffect(() => {
+        const listener = (event: KeyboardEvent) => {
+            if (keyboardCollection.hasOwnProperty(event.key)) {
+                keyboardCollection[event.key as keyof typeof keyboardCollection]()
+            }
+        }
+        document.addEventListener('keydown', listener)
+        return () => {
+            document.removeEventListener('keydown', listener)
+        }
+    })
 
     return (
         <div className={styles.keyboard}>
