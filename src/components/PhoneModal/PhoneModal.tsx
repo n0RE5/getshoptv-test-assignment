@@ -1,18 +1,23 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import styles from './PhoneModal.module.scss';
 import { usePhoneModalStore } from '../../store/PhoneModalStore';
 import Keyboard from '../Keyboard/Keyboard';
 import InputMask from 'react-input-mask'
+import qrcode from '../../assets/qr.svg';
+import { useQrModalStore } from '../../store/QrModalStore';
 
 const PhoneModal = () => {
-    const isActive = usePhoneModalStore(state => state.isActive)
-    const phoneNumber = usePhoneModalStore(state => state.phoneNumber)
-    const setPhoneNumber = usePhoneModalStore(state => state.setPhoneNumber)
-    const clearPhoneNumber = usePhoneModalStore(state => state.clearPhoneNumber)
+    const { isActive, phoneNumber, setPhoneNumber, clearPhoneNumber, closePhoneModal } = usePhoneModalStore(state => state)
+    const { openQrModal } = useQrModalStore(state => state)
 
     const handleClick = (event: React.MouseEvent) => {
         event.preventDefault()
     }
+
+    const handleClose = useCallback(() => {
+        closePhoneModal()
+        openQrModal()
+    }, [])
 
     if(!isActive) {
         return null
@@ -21,7 +26,7 @@ const PhoneModal = () => {
     return (
         <div className={styles.phonemodal}>
             <div className={styles.phonemodal_w}>
-                <form className={styles.phonemodal_content}>
+                <div className={styles.phonemodal_content}>
                     <div className={styles.phonemodal_text}>Введите ваш номер мобильного телефона</div>
                     <InputMask 
                         className={styles.phonemodal_input} 
@@ -41,7 +46,24 @@ const PhoneModal = () => {
                     >
                         ПОДТВЕРДИТЬ НОМЕР
                     </button>
-                </form>
+                </div>
+                <div className={styles.phonemodal_sidebar}>
+                    <button 
+                        onClick={handleClose}
+                        className={styles.phonemodal_close}
+                    >
+                    
+                    </button>
+                    <div className={styles.phonemodal_qr}>
+                        <div className={styles.phonemodal_qr__text}>
+                            СКАНИРУЙТЕ QR-КОД <br />
+                            ДЛЯ ПОЛУЧЕНИЯ <br />
+                            ДОПОЛНИТЕЛЬНОЙ <br />
+                            ИНФОРМАЦИИ
+                        </div>
+                        <img src={qrcode} alt="qrcode" />
+                    </div>
+                </div>
             </div>
         </div>
     );
