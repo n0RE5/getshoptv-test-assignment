@@ -1,0 +1,94 @@
+@import '../../styles/variables';
+
+.phonekeyboard_content {
+    background-color: $cyan;
+    padding: 72px 48px;
+    display: flex;
+    flex-direction: column;
+    width: 380px;
+    height: 100%;
+}
+
+.phonekeyboard_text {
+    font-size: 26px;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 13px;
+}
+
+.phonekeyboard_microtext {
+    margin: 13px 0;
+    font-weight: 400;
+    font-size: 14px;
+    text-align: center;
+}
+
+.phonekeyboard_input {
+    background-color: transparent;
+    border: none;
+    font-weight: 700;
+    font-size: 32px;
+    &__error {
+        background-color: transparent;
+        border: none;
+        font-weight: 700;
+        font-size: 32px;
+        color: #EA0000;
+    }
+}
+
+
+.phonekeyboard_button {
+    width: 100%;
+    padding: 12px 0;
+    transition: all .15s ease-in;
+    color: $gray;
+    outline: none;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+    background-color: transparent;
+    border: 1px solid $gray;
+    &:hover, &:focus {
+        background-color: black;
+        border: 1px solid black;
+        color: white;
+        cursor: pointer;
+    }
+    &[disabled]:hover, &[disabled]:focus {
+        background-color: transparent;
+        color: $gray;
+        border: 1px solid $gray;
+        cursor: default;
+    }
+}
+
+.phonekeyboard_verified {
+    justify-content: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    &__title {
+        font-weight: 700;
+        font-size: 32px;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+    &__text {
+        font-size: 14px;
+        font-weight: 400;
+        text-align: center;
+    }
+}
+
+.phonekeyboard_error {
+    height: 52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 13px 0;
+    font-weight: 500;
+    font-size: 16px;
+    color: #EA0000;
+    text-align: center;
+}
