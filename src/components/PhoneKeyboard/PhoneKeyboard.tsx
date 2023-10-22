@@ -46,6 +46,7 @@ const PhoneKeyboard = () => {
                     <button 
                         className={styles.phonekeyboard_button}
                         onClick={handleClick}
+                        id="arrowNavigation"
                         disabled={phoneNumber.length < 11 || !policyAgreed}
                     >
                         ПОДТВЕРДИТЬ НОМЕР
