@@ -3,15 +3,18 @@ import { usePhoneModalStore } from '../../store/PhoneModalStore';
 import styles from './QrModal.module.scss';
 import qrcode from '../../assets/qr.svg'
 import { useQrModalStore } from '../../store/QrModalStore';
+import { useVideoPlayerStore } from '../../store/VideoPlayerStore';
 
 const QrModal = () => {
     const { isActive, closeQrModal, openQrModal } = useQrModalStore(state => state)
     const { openPhoneModal } = usePhoneModalStore(state => state)
+    const { pause } = useVideoPlayerStore(state => state)
 
     const handleClick = useCallback((event: React.MouseEvent) => {
         event.preventDefault()
         closeQrModal()
         openPhoneModal()
+        pause()
     }, [])
 
     useEffect(() => {
