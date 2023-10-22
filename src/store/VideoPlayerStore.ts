@@ -2,12 +2,16 @@ import {create} from 'zustand';
 
 interface VideoPlayerState {
     isActive: boolean,
-    switchState: (arg0: boolean) => void
+    pause: () => void,
+    play: () => void
 }
 
 export const useVideoPlayerStore = create<VideoPlayerState>((set) => ({
     isActive: true,
-    switchState: (active: boolean) => set({
-        isActive: active 
-    })
+    pause: () => set({
+        isActive: false 
+    }),
+    play: () => set({
+        isActive: true 
+    }),
 }))
