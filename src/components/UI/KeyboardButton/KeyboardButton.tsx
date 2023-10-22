@@ -13,6 +13,7 @@ const KeyboardButton: React.FC<KeyboardButtonProps> = React.memo(({ value, gridG
             className={styles.button} 
             data-grow={gridGrow}
             onClick={onClick}
+            id="arrowNavigation"
             tabIndex={0}
         >
             {value}
